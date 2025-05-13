@@ -1,0 +1,156 @@
+---
+title: "Background and methods to assess the Antarctic fur seal IUCN status in 2025"
+author: "Jaume Forcada"
+date: "`r format(Sys.time(), '%d %b %Y')`"
+bibliography: AFSAssessment.bib
+link-citations: true
+output:
+  word_document:
+    number_sections: true
+  html_document:
+    number_sections: true
+  pdf_document:
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+<br>
+
+ABSTRACT
+
+<br>
+
+Keywords
+Antarctic fur seal, Arctocephalus gazella, abundance decline, assessment, relist
+
+# Introduction
+
+The Antarctic fur seals (*Arctocephalus gazella*) is the second most abundant pinniped in the Southern Hemisphere, the most abundant otariid globally [@https://doi.org/10.1525/california/9780520248847.003.0027; @https://doi.org/10.1111/gcb.16947], and has a circumpolar distribution in Subantarctic and Antarctic islands of the Southern Ocean. It is an important predator of Antarctic krill and therefore an important component of Antarctic and subantarctic ecosystems, and a key indicator species of their state, function, and services. It has a four-month lactation period, which is one of the shortest among the otariids, it is a highly sexually dimorphic species with a polygnous breeding system, which significantly determines longevity and lifetime breeding success. According to Humble et al. (2018) and Paijmans et al. (2020), there are at least four distinct genetic groups or subpopulations [@https://10.1534/g3.118.200171; @https://doi.org/10.1038/s41598-020-61560-8], with the largest found in the South Atlantic sector of the Southern Ocean, at South Georgia, Bouvetøya, and South Shetland Islands [@https://doi.org/10.1111/gcb.16947; @https://doi.org/10.1016/B978-0-12-804327-1.00046-7]. Together, these three subpopulations (**Fig1**) comprise approximately 99% of the global abundance, but all have experienced rapid declines due to increasing external pressures [@https://doi.org/10.1007/978-3-030-63177-2_4; @https://doi.org/10.1111/gcb.16947; @https://doi.org/10.1038/nature13542; @https://10.3389/fmars.2021.796488; @https://doi.org/10.1111/mam.12327;@https://doi.org/10.1038/s41598-020-75148-9].
+
+At Bird Island (NW South Georgia; **Fig.2**b), pup production estimates declined from 60,500 to 27,900 between 2009 to 2017, or 9.2% per year, and the mature female population declined annually by 7.2% [@https://doi.org/10.1111/gcb.16947]. At Bouvetøya (**Fig1**; 5), the second largest subpopulation with approximately 66,000 seals by 2002 [@https://doi.org/10.1007/s00300-005-0732-7], pup counts declined annually by 5.6%, between 2001 and 2007 [@http://dx.doi.org/10.2305/IUCN.UK.2016-1.RLTS.T2058A66993062.en]. And at the South Shetland Islands (**Fig1**, 4; **Fig2**a), with approximately 41,000 seals in 2002 [@https://10.3389/fmars.2021.796488], annual pup counts at study areas in the southwest declined by 90.9% between 2008 and 2023 [@https://doi.org/10.1111/mam.12327], or a 5.6% per year. At the entire archipelago, counts declined from 10,057 pups in 2002 to 7,602 in 2008 [@https://10.3389/fmars.2021.796488], equivalent to an annual decline of 4.6%.
+
+Other breeding locations, currently part of a single genetic group referred here as the East Antarctica subpopulation, are distributed in subantarctic islands of the southern Indian and southwestern Pacific Oceans (**Fig1**; locations 6-10). Recently, pup counts at most of its current breeding locations, including Marion Island (Prince Edward Islands) [@https://doi.org/10.1111/mms.12306], Possession Island (Crozet archipelago), Courbet Peninsula (Kerguelen archipelago) [@RN6225], Heard Island (Heard Island and McDonald Islands) [@https://doi.org/10.1007/s00300-003-0478-z], and Macquarie Island [@https://doi.org/10.1007/s00300-009-0645-y], have been slowly increasing annually by approximately 1 to 4%.
+
+The latest assessment of the species by the International Union for the Conservation of Nature (IUCN) [@http://dx.doi.org/10.2305/IUCN.UK.2016-1.RLTS.T2058A66993062.en], recognises that the global population is in decline, mostly driven by the rapid declines observed in the south Atlantic region subpopulations. However, the Red List category assigned is “least concern”, which is unlikely to reflect the real magnitude of the recent population reductions. Here, we reanalyse the change of each subpopulation and their sum, using the latest available data, to provide an up to date reassessment for IUCN. We also reanalyse data from Bird Island, South Georgia, as main source of correction factors and adjustments (e.g. to scale up pup production counts to total mature population), and evaluate overall population change at South Georgia with recent UAV survey data. We use the most recent available pup production data from other locations and subpopulations to evaluate global population change according to IUCN criteria [@https://www.iucnredlist.org/documents/RedListGuidelines.pdf].
+
+
+# Materials and methods
+
+## Study population, areas and trends
+
+South Georgia, in the Southwest Atlantic region of the Southern Ocean (**Fig1**),is by far the largest subpopulation with an estimated 97-98% of the global pup production and 3.5 [3.1, 3.9] million seals in 2009 [@https://doi.org/10.1111/gcb.16947]. The subpopulation includes small numbers of breeders in the South Orkney and South Sandwich Islands archipelagos (**Fig.1**), also located in the Scotia Sea (**Fig.2**a). The South Orkney Island group (**Fig.2**a) has a population almost exclusively composed of non-resident juvenile and adult males in post-breeding temporary migration, largely from South Georgia [@https://doi.org/10.1139/f97-314]; https://nora.nerc.ac.uk/id/eprint/524417; @https://doi.org/10.1007/s00442-021-04983-y; @https://doi.org/10.1017/S003224740006397X], although there are small numbers of temporary migrants from the South Shetland Islands [@https://doi.org/10.1038/s41598-020-75148-9;@https://doi.org/10.1111/gcb.17191], given the relative proximity of both archipelagos. Males from South Georgia and South Shetlands typically migrate temporarily along the Weddell Sea and west Antarctic Peninsula, and as far South as the Bellingshausen Sea [@https://doi.org/10.1007/s00442-021-04983-y; @https://doi.org/10.1038/s41598-021-01700-w]. There are also incidental records of pups in the Antarctic Peninsula (e.g., near Palmer Station [@https://doi.org/10.1002/ece3.70833];@RN6230], but these are very exceptional.
+  The numbers of breeding females and pups at the South Orkney Islands are extremely low, and counted as less than 70 in the entire archipelago in the early 1970s. At Signy Island, which has been monitored annually since 1977 [@https://nora.nerc.ac.uk/id/eprint/524417], despite several annual counts of more than 20,000 individuals between 1994 to 2000, only a maximum of 5 pups were recorded in any year of the same period, and pup numbers have declined to near zero since 2000 [@https://doi.org/10.1007/s00300-009-0706-2]. Similarly, at Laurie Island, only four pups were observed from 1996 to 2005, despite a maximum of 16,610 individuals counted in early 2005 [@https://doi.org/10.3402/polar.v25i2.6243]. At the South Sandwich Islands, breeders and pups have rarely been counted due to difficult access to locations, but since the early 1960s [@https://doi.org/10.1017/S0032247400053742] and after the regional recovery from sealing, pup numbers increased to at least 1,750 by 1997 [@https://doi.org/10.1017/S0032247400026450]. Published records with more recent data are lacking.
+
+
+<br>
+
+```{=html}
+<style>
+p.caption {
+  font-size: 1.0em;
+}
+</style>
+```
+
+<center>
+
+```{r Figure.1,fig.align="left",echo=FALSE, fig.cap="**Figure 1**: Distribution of breeding populations of Antarctic fur seals with detail on genetic subpopulations. The table shows estimated pup production up to 2010 or before, for remote locations not recently surveyed. Colours corresponds to identified genetic subpopulations",out.width = '100%',out.extra='style="background-color: #000000; padding:1px; display: inline-block;"'}
+knitr::include_graphics("Figure1.png")
+```
+
+</center>
+
+<br>
+
+## Data
+
+### Count data
+
+Antarctic fur seal demographic and count data representative of South Georgia were collected at a long-term monitoring location of Bird Island named Special Study Beach (SSB) (54.0116$^\circ$S,38.0507$^\circ$W;location 1, **Fig.2**b), from 1979 to 2024 [@https://doi.org/10.1017/S0032247400002680;@https://doi.org/10.1111/j.1469-7998.1984.tb05095.x;@https://doi.org/10.1111/j.1469-7998.1990.tb04032.x;@https://doi.org/10.1111/j.1365-2486.2008.01678.x]. Complete counts of the entire Bird Island were obtained in nine seasons, including visual counts in December 1988, 1989, 1990, 1994, and 1997, and photographic counts in December of 2003, 2008, 2016, and 2023. (Hereafter, a breeding season is referred to by the second year of the split-year austral summer; e.g., 2023-24 is 2024.) From 2009 to 2024, long-term count data were also collected at Maiviken (54.2435$^\circ$S,36.5033$^\circ$W) (location 2, **Fig.2**b) situated on South Georgia main land
+approximately 105 km to the east of Bird Island [@https://doi.org/10.5285/41bfd98c-1a36-4689-a578-ad584426f9d2]; and
+aerial survey data were also collected at additional locations (3 to 5 in **Fig.2**b). All together, and with a maximum straight-line distance between any two locations of 125km, the data provide a representative sample of geographic population variation over time.
+
+At Signy Island, South Orkney Islands (60.3385$^\circ$S,45.0037$^\circ$W) (**Fig.2**a), count data were collected around the entire island as part of a long-term monitoring programme which started in 1977 [@https://nora.nerc.ac.uk/id/eprint/524417], and continued to date with only a few interruptions due to weather or logistic constraints [@https://doi.org/10.1007/s00300-009-0706-2]. Counts by two trained observers using consistent methodology took place between mid-February and early March every year, when fur seals numbers peak.
+
+Complete Bird Island surveys were conducted from elevated vantage points by trained biologists who counted fur seals in all the breeding beaches. In photographic-based surveys, counts were extracted from high resolution images of the breeding beaches obtained with digital cameras. Comprehensive aerial photographic data on South Georgia main land were
+obtained during two helicopter surveys conducted in December 2006 and 2008 (see @https://doi.org/10.1111/gcb.16947), and for this analysis we retained the counts corresponding to locations 2 to 5 in **Fig.2**b, available at @https://doi.org/10.5061/dryad.2rbnzs7tc. Surveys of these locations were repeated in December 2021 using RPAS (Remotely Piloted Aerial Systems).
+
+In image-based surveys, two observers working independently using consistent training and methodology produced counts from digital images, classifying seals in four categories: pups, females, territorial males and non-territorial males. Count data were collected as close as possible to the peak pupping day. The pupping season, from mid-November to mid-January, peaks with high spatial synchrony between the 6th to 10th of December, when numbers of newborn pups, breeding females and territorial males at each location reach their maximum daily values, with lower day-to-day variability than at later dates [@https://doi.org/10.1111/j.1469-7998.1990.tb04032.x;@https://doi.org/10.1890/04-1153;
+@https://doi.org/10.3957/0379-4369-37.1.1]. (See also Appendix).
+
+### Capture-recapture and productivity data
+
+Capture-mark-recapture of individuals, monitoring of pup production, and collection of individual count data at Bird Island used in this analysis started in 1979 [@https://doi.org/10.1111/j.1469-7998.1984.tb05095.x] and have been consistently collected since 1984 onwards [@https://doi.org/10.1111/j.1469-7998.1990.tb04032.x; @https://doi.org/10.1111/j.1365-2486.2008.01678.x]. Annually at SSB, from November 1st to mid-January, daily numbers of new and total females, newborn pups and territorial males are consistently recorded during twice-daily surveys. Within a season, female breeding status and performance is monitored through tags, and territory tenure by males is monitored through individual temporary paint marks. For between-year recaptures, a variable sample of females has been captured since 1984 every season, reliably aged from sectioned post-canine teeth, marked with plastic tags on the fore flippers, and subcutaneous electronic chips (Passive Integrated Transponder tags, PIT-tags) fitted since 1997. Flipper tags have been given to each cohort of newborn pups since 1984 and PIT-tags implanted since 2001; and genetic samples from pups and breeding females are collected upon capture. For each territorial male, genetic tagging is obtained each season with a small biopsy remotely acquired using a low-power crossbow bolt with a modified sampling syringe. Females and males are highly philopatric and return ashore to breed almost every year [@https://doi.org/10.2307/1381999; @https://doi.org/10.1016/j.mambio.2011.09.002; @https://doi.org/10.1111/j.1365-294X.2006.03053.x], once established as
+breeders and territorials respectively. Early pup mortality is estimated from the recovery of dead pups, prior to flipper-tagging approximately 1.5 months after birth.
+
+```{=html}
+<style>
+p.caption {
+  font-size: 1.0em;
+}
+</style>
+```
+
+<center>
+
+```{r Figure.2,fig.align="left",echo=FALSE, fig.cap="**Figure 2**: **a** Scotia Sea, with breeding locations of the putative genetic subpopulation of South Georgia, including South Sandwich and South Orkney Islands, and the subpopulation of the South Shetland Islands. **b**, Locations of South Geogia where population surveys were obtained in 2021-22. In locations 2-5, seal counts were obtained with high resolution images from Remotely Piloted Aerial Systems (**RPAS**)",out.width = '100%',out.extra='style="background-color: #000000; padding:1px; display: inline-block;"'}
+knitr::include_graphics("Figure2.png")
+```
+
+</center>
+
+<br>
+
+## Analysis
+
+### Population modelling
+
+#### South Georgia
+
+We obtained an up-to-date assessment for Bird Island and other locations at South Georgia with the latest available data and using population analysis methods of @https://doi.org/10.1111/gcb.16947. The analysis used integrated population models (IPMs) to evaluate population numbers, vital rates and other demographic parameters, and corrections for seal survey counts. It combined different data sources including individual recapture histories of fur seal pups and adults, pup production, and individual daily count data. To evaluate abundance change and trends at locations away from SSB, we assumed that the dynamics of their daily counts are highly correlated to those at SSB. This is accurate within Bird Island and with Maiviken (MVK), another study site located 105km East of Bird island as the crow flies [@https://doi.org/10.1111/gcb.16947], which is closer to the additional survey locations in 2022 (**Fig.2**b). However, we relaxed this assumption by also incorporating daily counts at Maiviken in the analysis. This accounted for differences in haul out patterns between this study location and SSB, and corrected counts at other locations based on their proximity to either study sites. The analysis is described in the Appendix.
+
+The IPM analysis methods are described in full in the Appendix, including model fitting, and assessment. For inference, we used derived quantities and equations as follows. At a counted location $c$ or group of locations which are not SSB, abundance of mature individuals of either sex, $\hat{N}_M$, is derived as $\hat{N}_M=\sum_{c}\overline{n}^c_j\hat{N}^S_M/E(n^S_j)$. Here, $N^S_{M,t}$ is the estimated abundance of mature seals of either sex at SSB; $E(n^S_j)$ is a predicted mature female or male count at SSB on the $j$th day of a given season from the fitted $GAMM$ model of the IPM; and $\overline{n}^c_j$ is the female or male count at colony $c$ on day $j$, corrected for differences in haul out patterns between SSB and MVK, and weighted by the inverse of the distance in km to both locations (see Appendix). After adjusting for pre-breeding or pre-territorial seals, absolute abundance is estimated as
+
+\
+$\hat{N}=\left(1+\frac{\sum_{k}\hat{N}^S_{P_{k}}}{\hat{N}^S_M}\right)\frac{\hat{N}^S_M}{E(n^S_j)}\sum_{c}\frac{w^1_jn^c_j+w^2_j(n^c_j+\kappa_j)}{\sum{w_j}}$.
+
+where $\hat{N}^S_{P_k}$ is the estimated number of pre-breeders or pre-territorials of age $k$, for $k=1,...,K$, where $K$ is seven or above for females and eleven for males, at SSB; $\kappa_j$ is the difference in $E(n_j)$ between SSB and MVK on day $j$; and $w^1_j=1/d^{SSB}_j$ and $w^2_j=1/d^{MVK}_j$, where $d$ is distance in km to each location from counted colony $c$ (see Appendix for derivation and rationale). 
+
+#### South Orkney Islands
+
+We evaluated population trends at Signy Island using a log-linear model with a discrete-time stochastic Gompertz formulation [@https://doi.org/10.2307/2937041; @https://doi.org/10.1002/jwmg.425] of the observed fur seal count $y_t$ for year $t$, in response to a year-lagged count, $y_{t-1}$ with coefficient $ν$. To accommodate positive skewness from numerous low counts we used a negative binomial error distribution (e.g., @https://doi.org/10.1093/biomet/asp029), with $y_t \sim NB(r,p_t)$, where $r$ and $p_t$ were the dispersion and success rate parameters respectively, so that $p_t=r/(r+E[y_t])$. Expressed in natural log scale, $x_t=log E[y_t]$, the Gompertz Negative Binomial Model ($GNBM$) was formulated as
+
+$log (\frac{x_t}{x_{t-1}})=\upsilon+(1+\nu)y^T_{t-1}+\varepsilon$
+
+where intercept $\upsilon$ measures intrinsic growth rate, equivalent to $log(\lambda)$ when $E[y]=1$, $\nu$ is a density-dependence coefficient, and $\varepsilon$ and error term.
+
+#### South Georgia and South Orkney Island connections
+
+We examined similarities in population fluctuations between Bird Island (BI) and at Signy Island (SI) through wavelet decomposition. This highlighted short-lived (transient) population dynamics, which combined led to mean synchrony.Using R package $\texttt{biwavelet}$ v0.20.22; [@https://github.com/tgouhier/biwavelet], we obtained a cross-wavelet power analysis $W_{BI,SI}(f,τ)$ for seal numbers at both locations to detect significant patterns of covariation, their periodicity, and lagged time (phase difference) between them. Secondly, a coherence wavelet $Ρ_{BI,SI}(f,τ)$ provided a direct measure of the correlation between the power spectra of the two locations, revealing common patterns of gradual change [@https://doi.org/10.1007/s00442-008-0993-2;@https://doi.org/10.1175/1520-0477]. Low-frequency components with scales greater than 1/5^th^ (8 to 9 years) of each series length were inaccurate, and thus removed with a high-pass Gaussian filter. The remaining time-series, after normalisation, focussed on scales of between 2 and 8 years. We also used a cross-correlation function $R_{y_{BI},y_{SI}}(\tau)=E[y_{BI,t-\tau},\overline{y}_{SI,t}]$, where $\tau$ is a difference in years, to further investigate the population association between the BI and SI time-series. 
+
+Based on the results of these analyses, we investigated the population effects of BI on SI at appropriate time-lags ($\tau$) and using a modified $GNBM$,
+
+$log (\frac{x_t}{x_{t-1}})=\upsilon+(1+\nu_0)y^T_{SI,t-1}+\nu_1y^T_{BI,t-\tau}+\varepsilon$
+
+where $\nu_0$ is a density-dependence coefficient, $\nu_1$ is a fixed-effect of the BI mature female SSB abundance at time lag $\tau$.
+
+The model was extended to formally test for synchrony in a mixed-effects formulation, $GNBMM$, using methods similar to those of @https://doi.org/10.1890/08-1657.1, @https://doi.org/10.1111/j.2041-210X.2010.00050.x, and @https://doi.org/10.1371/journal.pone.0087084, with two independent random effects. One was a time-specific random effect $\delta_t \sim {\sf N}(0,\sigma^2_\delta)$ (where $N$ is for Normal), which modelled common synchronous variation across sites; and a separate time-specific random effect for each site $s$, $\varepsilon_{t,s} \sim {\sf N}(0,\sigma^2_\varepsilon)$, which accounted for additional and asynchronous variation.These effects were incorporated as
+
+$log (\frac{x_t}{x_{t-1}})=\upsilon+(1+\nu_0)y^T_{SI,t-1}+\nu_1y^T_{BI,t-\tau}+\delta_t+\varepsilon_{t,s}$
+
+The sum of the random terms’ variances, $\sigma^2_\delta+\sigma^2_{\varepsilon_s}$, was the between-year variance unexplained by the density-dependence and BI effects on SI. The variances were equally partitioned between sites in the shared term ($\sigma^2_\delta$), but not between unshared components ($\sigma^2_{\varepsilon_s}$). The fraction of between-year variance accounted by the shared component was the intra-class correlation, $ICC_s=  \sigma^2_\delta/(\sigma^2_\delta+\sigma^2_{\varepsilon_s})$, and measured the synchrony of site $s$ with the other site. When the shared (synchrony) component was large relative to the unshared component, $ICC_s$ approached 1, and tended to zero otherwise.
+
+#### Model implementation and assessment 
+
+All IPMs, GNBMs and GNBMMs were fitted using Markov Chain Monte Carlo (MCMC) methods in BUGS language and program JAGS v4.3.1 [@https://www.r-project.org/conferences/DSC-2003/Proceedings/Plummer.pdf], run from $\texttt{R}$ [v4.2.2 @R-base] with package $\texttt{rjags}$ v4-16 [@rjags] and its wrapper $\texttt{jagsUI}$ v1.6.2 [@jagsUI]. The model implementation and assessment is described in the Appendix, and includes prior distributions, model fitting details, and model assessment.
+
+
+
+## References
+
+::: {#refs}
+:::
+
+\printbibliography[heading=none]
+\def\printbibliography{}
