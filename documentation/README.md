@@ -1,7 +1,7 @@
 # Antarctic fur seal IUCN Assessment for 2025
 
 Description of main analysis methods and R scripts required to carry out the IUCN assessment 
-for the species as of 2025. It heavily relies on latest data for all four recognised subpopulations, 
+for the species as of 2025. It is based on latest data for all four recognised subpopulations, 
 South Georgia, Bouvetøya, South Shetland Islands, and East Antarctica.
 
 ## Description
