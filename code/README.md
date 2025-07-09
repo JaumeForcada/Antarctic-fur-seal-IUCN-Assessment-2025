@@ -76,28 +76,9 @@ $\texttt{rjags}$
 * Run sequentially the R scripts 1 to 12 above, and optionally 13.
 Some of the scripts which estimate abundance at SSB-BI including **SSBFemale_IPM_2001-2025.R**, **SSBMale_IPM_1995-2025.R**, and **SSBMatureFemale_IPM_1984-2025.R** take days to complete. It is recommended to skip those unless required, as the data outputs from the scripts are available here.
 
-Some of the data files are not available at the github repository due to large size. Those are included in the linked Zenodo repository, and include:
+Some of the data files are not available at the github repository due to large size. Those are included in an additional Zenodo repository:
 
-1. **AFSDynamicsSigny.RData**
-
-2. **AFSFemaleEarlySimulations19842025.Rds**
-
-3. **AFSFemaleSimulations200122Best.Rds**
-
-4. **AFSFemaleSimulations200125.csv**
-
-5. **AFSFemaleSimulations200125.Rds**
-
-6. **AFSFemaleSimulations19842025.csv**
-
-7. **AFSFemaleSimulations19842025.Rds**
-
-8. **AFSMaleSimulations19952007Best.Rds**
-
-9. **AFSMaleSimulations19952025.csv**
-
-10. **AFSMaleSimulations19952025.Rds**
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15850249.svg)](https://doi.org/10.5281/zenodo.15850249)
 
 ## Help
 
