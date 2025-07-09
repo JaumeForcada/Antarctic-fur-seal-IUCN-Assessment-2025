@@ -130,7 +130,9 @@ round(c(mean=mean(gentCh),SD=sd(gentCh)),5)
 # 9.90445 0.58698
 ##
 #  MEAN MATRIX MODEL
-matrix(rowMeans(sapply(seq(1,10000,by=10),getA)),ncol=13)
+round(matrix(rowMeans(sapply(seq(1,10000,by=10),getA)),ncol=13),3)
+#  SD of MEAN MATRIX MODEL
+round(matrix(apply(sapply(seq(1,10000,by=10),getA),1,sd),ncol=13),3)
 ##
 ## Save data
 saveRDS(gentCh,"processed_data/gentChM.Rds")

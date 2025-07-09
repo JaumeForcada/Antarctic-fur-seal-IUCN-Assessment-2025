@@ -141,7 +141,10 @@ round(c(mean=mean(gentCh),SD=sd(gentCh)),3)
 # 8.213 0.270 
 ###
 #  MEAN MATRIX MODEL
-(meanMat <- matrix(rowMeans(meanMat),ncol=9))
+(meanMatMod <- matrix(rowMeans(meanMat),ncol=9))
+#  SD of MEAN MATRIX MODEL
+(sdMat <- matrix(apply(meanMat,1,sd),ncol=9))
+round(sdMat,3)
 ##
 ## Save data
 saveRDS(gentCh,"processed_data/gentChF.Rds")

@@ -1,4 +1,36 @@
-##
+#####################################################################################
+## REASSESSMENT OF THE SOUTH GEORGIA SUBPOPULATION BASED ON SURVEY DATA FROM 2021/22
+#----------------
+## 1. USES SAVED DATA FROM THE IPMs TO OBTAIN ADJUSTMENTS FOR
+##   -> DAILY RATIOS OF SSB POPULATION ABUNDANCE ESTIMATES TOF FEMALE AND MALE COUNTS
+##   . FITS GAMM MODELS WITH jags AS PART OF THE IPM LIKELIHOODS, FOR EACH SEX
+##   -> ESTIMATES SCALING FACTORS (Kappa) DUE TO HAUL-OUT DIFFERENCES BETWEEN MVK~SSB
+## 2. OBTAIN ABUNDANCE SIMULATIONS FOR SURVEYED LOCATIONS IN 2022
+##   -> FOR BIRD ISLAND USES SCRIPTS 'BIMatureFemaleAbundance.r', 'BIMatureMaleAbundance.r'
+##   -> SOURCE SAVED .Rds FILES WITH SIMULATION FOR OTHER LOCATIONS AT SG IN 2007-09
+##      (This is obtained from previous analysis: https://doi.org/10.1111/gcb.16947)
+##   -> OBTAIN ABUNDANCE FOR COMPARABLE AREAS SURVEYED BETWEEN 2007 OR 2009 AND 2022
+##   . 2021-22 RPAS COUNT DATA:
+#    . Hound Bay: 18/12/2021 - West: 36.2651099°W 54.3880689°S East: 36.2555069°W 54.3918537°S
+#    . Maiviken: 27/12/2021 - West: 36.5024586°W 54.2531057°S East: 36.4984819°W 54.2443644°S
+#    . Stromness Harbour: 22/12/2021
+#    . Husvik Harbour: 22/12/2021
+#      Site no.	Location	        Count Method	No. of Females	No. of Pups	No. of Males
+#           06	 Hound Bay	            Manual	           931	        664	         196
+#           09	 Maiviken	              Manual	         1,003	        725	         202
+#           23	 Stromness Harbour	    Manual	         2,043	      2,043	       1,255
+#           24	 Husvik Harbour	        Manual	         2,855	      2,616	       1,503
+## 3. OBTAIN GENERATION TIME - FOR 2008-09 WITH 'AFSFemale_vital_rates.R', 'AFSFemale_vital_rates.R'.
+##   -> WEIGHTED MEAN: IN 2009 USING BI MATURE MALE AND FEMALE DATA - 
+##   . "processed_data/gentCHw.Rds"  VECTOR OF ONLY 10000 SIMULATIONS
+#
+## 4. OBTAIN A PROJECTION OF SOUTH GEORGIA POPULATION FROM SAVED ABUNDANCE DATA SIMULATIONS:
+##  -> "raw_data/SGC09.Rds" AND "raw_data/SGC07.Rds"
+##  ->  OBTAIN ESTIMATES OF ANNUAL CHANGE FOR SURVEYED COLONIES
+##  ->  GENERATE ANNUAL CHANGE VECTORS FOR EACH SOUTH GEORGIA BREEDING LOCATION 
+##      (WEIGHTED BY DISTANCE TO CLOSEST SURVEYED COLONY)
+## 5. OBTAIN ESTIMATES OF POPULATION REDUCTION AND ANNUAL CHANGE FOR SOUTH GEORGIA
+##-----------------------------------------------------------------------------------
 ## LOAD PACKAGES
 library(mgcv)
 library(jagsUI)
@@ -400,14 +432,14 @@ saveRDS(gentCHw,"processed_data/gentCHw.Rds")
 annualChange <- function(i,yp)
   as.vector((yp[i,4]/yp[i,2])^(1/(yp[i,3]-yp[i,1])))
 ## REDUCTION
-reduction <- function(i,yp, G=gentCHw,ay=2025,short=T,lowc=F){
+reduction <- function(i,yp, G=gentCHw,ay=2025,short=T,lowc=F,ac1=.98){
   ap <- min(c(max(c(10,G[i]*3)),100))
   y3a <- ay - ap
   ac <- (yp[i,4]/yp[i,2])^(1/(yp[i,3]-yp[i,1]))
   yby3y1 <- yp[i,1] - y3a
   yby2ay <- ay - yp[i,3]
   if(lowc)
-    cb3y1 <- 0.98^yby3y1
+    cb3y1 <- ac1^yby3y1
   else
     cb3y1 <- ac^yby3y1
   cby2ay <- ac^yby2ay
@@ -422,13 +454,19 @@ reduction <- function(i,yp, G=gentCHw,ay=2025,short=T,lowc=F){
 }
 ####
 ##  CALCULATE ANNUAL CHANGE AND REDUCTIONS
-## MAIVIKEN
-MVred <- sapply(1:10000,reduction, yp=cbind(rep(2007,10000),MV07[1:10000],rep(2022,10000),MV22[1:10000]),short=F)
-MVm <- rowMeans(MVred)
-MVsd <- apply(MVred,1,sd)
 
+## BIRD ISLAND
+BIred <- sapply(1:10000,reduction, yp=cbind(rep(2004,10000),BI04[1:10000],rep(2024,10000),BI24[1:10000]),short=F)
+## STROMNESS HARBOUR
+STred <- sapply(1:10000,reduction, yp=cbind(rep(2009,10000),ST09[1:10000],rep(2022,10000),ST22[1:10000]),short=F,lowc=T)
+## HUSVIK HARBOUR
+HVred <- sapply(1:10000,reduction, yp=cbind(rep(2009,10000),HV09[1:10000],rep(2022,10000),HV22[1:10000]),short=F,lowc=F)
+## MAIVIKEN
+MVred <- sapply(1:10000,reduction, yp=cbind(rep(2007,10000),MV07[1:10000],rep(2022,10000),MV22[1:10000]),short=F,lowc=T)
+## HOUND BAY
+HBred <- sapply(1:10000,reduction, yp=cbind(rep(2009,10000),HB09[1:10000],rep(2022,10000),HB22[1:10000]),short=F,lowc=T)
 ##
-## SOUTG GEORGIA ESTIMATES FOR 2007-09
+## SOUTH GEORGIA ESTIMATES FOR 2007-09
 SGC09 <- readRDS("raw_data/SGC09.Rds")
 SGC07 <- readRDS("raw_data/SGC07.Rds")
 SGC07Compare <- readRDS("raw_data/SGC07Compare.Rds")
@@ -464,12 +502,6 @@ NT07 <- predsM[, which(dimnames(predsM)[[2]] == "NT[13]")]
 NN07 <- predsM[, which(dimnames(predsM)[[2]] == "NN[13]")]
 NATot.nc07 <- (NT07 +  NN07) / ncM07
 NT.nc07 <- NT07 / ncM07
-
-
-
-
-
-
 ##-------------------------------------------------------------------------------------
 ##  SOUTH GEORGIA PROJECTION
 SGC09 <- readRDS("raw_data/SGC09.Rds")
@@ -556,7 +588,7 @@ round(c(mean(SGNTf+SGNTm),quantile(SGNTf+SGNTm,c(.025,.975))))
 ##-----------------------------------------------------------------------------------------
 ##  SOUTH GEORGIA REDUCTION
 SGred <- sapply(1:10000,reduction,yp=cbind(rep(2009,10000),(rowSums(SG09F)+rowSums(SG09M))[1:10000],rep(2022,10000),SGNT[1:10000]),short=T,lowc=T)
-c(mean(SGred),quantile(SGred,c(0.025,0.975)))
+c(mean(SGred),SD=sd(SGred),quantile(SGred,c(0.025,0.975)))
 #                      SD        2.5%       97.5% 
 # -0.56658464  0.04500048 -0.64751108 -0.47227540
 #-------------
@@ -569,4 +601,8 @@ c(mean(SGAC),SD=sd(SGAC),quantile(SGAC,c(0.025,0.975)))
 c(mean(100*(1-SGAC)),SD=sd(100*(1-SGAC)),quantile(100*(1-SGAC),c(0.025,0.975)))
 #                  SD      2.5%     97.5% 
 # 3.9261041 0.6136052 2.7276344 5.1282976 
-#####
+##-----------------------------------------------------------------------------------------
+## SAVE VECTORS OF MATURE POPULATION ESTIMATES
+saveRDS(rowSums(SG09F)+rowSums(SG09M),"processed_data/SG09.Rds")
+saveRDS(SGNT,"processed_data/SG22.Rds")
+##-----------------------------------------------------------------------------------------

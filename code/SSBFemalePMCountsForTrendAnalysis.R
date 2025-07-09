@@ -609,4 +609,168 @@ preds1 <- preds[, which(dimnames(preds)[[2]] == paste("mu[", min(pdays(predday[9
 saveRDS(preds1, "SSBPredictedPMCount2324.Rds")
 preds1 <- preds[, which(dimnames(preds)[[2]] == "mu[1]"):which(dimnames(preds)[[2]] == "mu[68]")]
 saveRDS(preds1, "SSBPredictedPMCount2324ALL.Rds")
+#
+
+
+###-----------------------------------------------------------------------------
+##  FOR EXTRAPOLATION OF MAIVIKEN FEMALE COUNTS TO TOTAL MATURE FEMALES
+#----------------------------------
+library(mgcv)
+library(MASS)
+library(nlme)
+##  OBTAIN SCALING FACTORS DUE TO HAUL-OUT DIFFERENCES BETWEEN MVK AND SSB
+##   - USES FREQUENTIST POISSON GAMs AS THEY PROVIDE SIMILAR RESULTS AS jagam BUT MUCH FASTER
+##   -> PREDICT PEAK PUPPING DAYS
+newpups <- read.csv("raw_data/newpups.csv",header=F)
+colnames(newpups) <- 1985:2025
+sumpup <- apply(newpups,2,cumsum)   # CUMULATIVE SUM
+## FUNCTION ffs.obs FITS AN NLME (LOGISTIC) MODEL TO OBTAIN THE PEAK PUPPING DAY
+source("code/ffs.obs.R")
+## YEARS WITH COMPLETE BIRD ISLAND SURVEYS
+syears2 <- 2010:2025
+pks2 <- ses2 <- numeric(length(syears2))
+for(i in 1:length(syears2)){
+  pks2[i] <- as.vector(ffs.obs(data.frame(day = 1:70, pups = sumpup[, paste(syears2[i])]), plots = F)$coefficients[2])
+  ses2[i] <- sqrt(ffs.obs(data.frame(day = 1:70, pups = sumpup[, paste(syears2[i])]), plots = F)$varBeta[2, 2])
+}  
+## PEAK PUPPING DATES ARE:
+pksS <- round(pks2)
+pksM <- round(pks2)+6   # FOR CORRELATED MAIVIKEN COUNTS
 ##
+##  SSB FEMALE COUNTS & MAIVIKEN COUNTS
+Sfemc <- read.csv("raw_data/SSB_total_female_counts.csv",header=T)
+Mfemc <- read.csv("raw_data/maiviken.csv", header=T)
+##  BI-SSB ABUNDANCE ESTIMATES
+preds <- readRDS("processed_data/AFSFemaleSimulations200125.Rds")
+#
+
+MVKAf <- matrix(NA, 15000, length(syears2))
+set.seed(666)
+for(i in 1:length(syears2)){
+  # SSB
+  Sdat <- data.frame(y=Sfemc[1:70,paste("X",syears2[i],sep="")],x0=1:70)
+  bS <- gam(y ~ s(x0),family=poisson(link="log"),data=Sdat,method="REML")
+  XpS <- predict(bS,newdata=data.frame(x0=1:70),type="lpmatrix")
+  brS <- mvrnorm(n=15000,coef(bS),bS$Vp)
+  bSsim <- exp(XpS %*% t(brS))
+  zSsim <- apply(bSsim,2,FUN=function(x) (x-min(x))/(max(x)-min(x)))
+  # MVK
+  Mdat <- data.frame(y=Mfemc$females[Mfemc$year==syears2[i]],x0=Mfemc$day[Mfemc$year==syears2[i]])
+  bM <- gam(y ~ s(x0),family=poisson(link="log"),data=Mdat,method="REML")
+  XpM <- predict(bM,newdata=data.frame(x0=1:70),type="lpmatrix")
+  brM <- mvrnorm(n=15000,coef(bM),bM$Vp)
+  bMsim <- exp(XpM %*% t(brM))
+  zMsim <- apply(bMsim,2,FUN=function(x) (x-min(x))/(max(x)-min(x)))
+  ##
+  dNsim <- zMsim - zSsim   # zM > zS 
+  dPsim <- zSsim - zMsim   # zM < zS 
+  fkNsim <- bMsim*dNsim/zMsim
+  fkPsim <- bMsim*dPsim/zMsim
+  fKNsim <- 1-dNsim/zMsim
+  fKPsim <- 1+dPsim/zMsim
+   MVKAf[,i] <- round(bMsim[pksS[i],] * fKNsim[pksS[i],] * 
+    ((preds[,which(dimnames(preds)[[2]]==paste("NB[",i+9,"]",sep=""))]+preds[,which(dimnames(preds)[[2]]==paste("NN[",i+9,"]",sep=""))])/ 
+       bSsim[pksS[i],]))
+  print(c(i,mean(fKNsim[pksS[i],]),mean(fKPsim[pksS[i],])))
+}
+## FIT A GAM TREND
+gMVKAf <- matrix(NA, 15000, length(syears2))
+for(i in 1:15000){
+  dat <- data.frame(Nf=MVKAf[i,], year=syears2)
+  tgam <- gam(Nf ~ s(year,fx=T,k=3),family=poisson(link="log"),data=dat,method="REML")
+  gMVKAf[i,] <- predict(tgam, type="response")
+  print(i)
+}
+
+
+
+## INCLUDE IN FIGURE 5 MAIVIKEN PLOTS
+##--------------------------------------
+## MALES
+##  SSB MALE COUNTS & MAIVIKEN COUNTS
+Stmc <- read.csv("raw_data/SSB_total_male_counts.csv",header=T)
+Mtmc <- read.csv("raw_data/maiviken.csv", header = T)
+##  BI-SSB ABUNDANCE ESTIMATES
+predsM <- readRDS("processed_data/AFSMaleSimulations19952025.Rds")
+##
+MVKAm <- matrix(NA, 15000, length(syears2))
+set.seed(666)
+for(i in 1:length(syears2)){
+  # SSB
+  Sdat <- data.frame(y=Stmc[1:61,paste("X",syears2[i],sep="")],x0=1:61)
+  bS <- gam(y ~ s(x0),family=poisson(link="log"),data=Sdat,method="REML")
+  XpS <- predict(bS,newdata=data.frame(x0=1:61),type="lpmatrix")
+  brS <- mvrnorm(n=15000,coef(bS),bS$Vp)
+  bSsim <- exp(XpS %*% t(brS))
+  zSsim <- apply(bSsim,2,FUN=function(x) (x-min(x))/(max(x)-min(x)))
+  # MVK
+  ## MAIVIKEN
+  Mdat <- data.frame(y=Mtmc$males[Mtmc$year==syears2[i]],x0=Mtmc$day[Mtmc$year==syears2[i]])
+  bM <- gam(y ~ s(x0),family=poisson(link="log"),data=Mdat,method="REML")
+  XpM <- predict(bM,newdata=data.frame(x0=1:61),type="lpmatrix")
+  brM <- mvrnorm(n=15000,coef(bM),bM$Vp)
+  bMsim <- exp(XpM %*% t(brM))
+  zMsim <- apply(bMsim,2,FUN=function(x) (x-min(x))/(max(x)-min(x)))
+  ##
+  dNsim <- zMsim - zSsim   # zM > zS 
+  dPsim <- zSsim - zMsim   # zM < zS 
+  mkNsim <- bMsim*dNsim/zMsim
+  mkPsim <- bMsim*dPsim/zMsim
+  mKNsim <- 1-dNsim/zMsim
+  mKPsim <- 1+dPsim/zMsim
+  #
+  MVKAm[,i] <- bMsim[pksS[i],] * mKNsim[pksS[i],] * 
+    ((predsM[,which(dimnames(predsM)[[2]]==paste("NT[",i+15,"]",sep=""))]+
+      predsM[,which(dimnames(predsM)[[2]]==paste("NN[",i+15,"]",sep=""))]) / bSsim[pksS[i],])
+  print(c(i,mean(mKNsim[pksS[i],]),mean(mKPsim[pksS[i],])))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##  GET AFTERNOON FEMALE COUNT DATA FROM SSB
+tfemc2 <- read.csv("raw_data/SSB_total_female_counts.csv",header = T)[1:70,]
+## Adding sequential day starting on November 1st
+day <- 1:70
+##  PREDICT PEAK PUPPING DAYS
+newpups <- read.csv("raw_data/newpups.csv",header=F)
+colnames(newpups) <- 1985:2025
+sumpup <- apply(newpups,2,cumsum)   # CUMULATIVE SUM
+#
+## FUNCTION ffs.obs FITS AN NLME (LOGISTIC) MODEL TO OBTAIN THE PEAK PUPPING DAY
+source("code/ffs.obs.R")
+## YEARS WITH COMPLETE BIRD ISLAND SURVEYS
+syears2 <- 2010:2025
+pks2 <- ses2 <- numeric(length(syears2))
+for(i in 1:length(syears2)){
+  pks2[i] <- as.vector(ffs.obs(data.frame(day = 1:70, pups = sumpup[, paste(syears2[i])]), plots = F)$coefficients[2])
+  ses2[i] <- sqrt(ffs.obs(data.frame(day = 1:70, pups = sumpup[, paste(syears2[i])]), plots = F)$varBeta[2, 2])
+}  
+## PEAK PUPPING DATES ARE:
+pksS <- round(pks2)
+pksM <- round(pks2)+6   # FOR CORRELATED MAIVIKEN COUNTS
+##
+for(i in 1:length(syears2)){
+  dat <- data.frame(y = tfemc[, paste("X", syears2[i], sep = "")], x0 = 1:70)
+  jd <- gam(y ~ s(x0), family = poisson(link = "log"), data = dat)
+  predict(jd)
+  
+}
+
+# N^M = nc_j N^S_M / E(nS_j) -> count at MVK on day j times N_matures / PM_countSSB on dy j
+
+
+
+

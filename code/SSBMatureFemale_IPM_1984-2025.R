@@ -471,3 +471,18 @@ lpAFS <- readRDS("lpAFS7925.Rds")
 gamAFS <- readRDS("gamAFS7925.Rds")
 NTSims <- readRDS("NTSims7925.Rds")
 #
+LogLambdas <- cbind(
+  preds2[,which(dimnames(preds2)[[2]]=="loglambda[1]"):which(dimnames(preds2)[[2]]=="loglambda[5]")],
+  preds[, which(dimnames(preds)[[2]] == "loglambda[1]"):which(dimnames(preds)[[2]] == "loglambda[41]")]
+)
+dimnames(LogLambdas)[[2]] <- paste("LL",1:46,sep="")
+## EXTRACT VECTOR OF LOG-LAMBDAS FOR 1995:2006 (12 years)
+## exp(sum(colMeans(LogLambdas)[16:27])/length(colMeans(LogLambdas)[16:27]))
+## [1] 0.988878
+saveRDS(exp(rowSums(LogLambdas[,16:27])/12),"processed_data/earlyLogLambdas.Rds")
+##
+## LogLambda since 2000
+LL0025 <- exp(rowSums(LogLambdas[,21:46])/length(21:46))
+round(c(mean=mean(LL0025),SD=sd(LL0025),quantile(LL0025,c(0.025,0.975))),3)
+#  mean    SD  2.5% 97.5% 
+# 0.973 0.003 0.968 0.978
