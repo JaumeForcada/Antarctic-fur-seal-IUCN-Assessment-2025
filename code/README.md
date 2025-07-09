@@ -74,7 +74,7 @@ $\texttt{rjags}$
 ### Reproducing the analysis
 
 * Run sequentially the R scripts 1 to 12 above, and optionally 13.
-Some of the scripts which estimate abundance at SSB-BI including $\texttt{SSBFemale_IPM_2001-2025.R}$, $\texttt{SSBMale_IPM_1995-2025.R}$, and $\texttt{SSBMatureFemale_IPM_1984-2025.R}$ take days to complete. It is recommended to skip those unless required, as the data outputs from the scripts are available here.
+Some of the scripts which estimate abundance at SSB-BI including **SSBFemale_IPM_2001-2025.R**, **SSBMale_IPM_1995-2025.R**, and **SSBMatureFemale_IPM_1984-2025.R** take days to complete. It is recommended to skip those unless required, as the data outputs from the scripts are available here.
 
 Some of the data files are not available at the github repository due to large size. Those are included in the linked Zenodo repository, and include:
 
