@@ -1,5 +1,7 @@
 # Antarctic fur seal IUCN Red List Quantitative Assessment 2025
 
+[![DOI](https://zenodo.org/badge/982008348.svg)](https://doi.org/10.5281/zenodo.15848681)
+
 Documentation, raw data, processed data and code to reproduce the quantitative assessment that supports 
 the Antarctic fur seal IUCN Red List Assessment for 2025.
 
