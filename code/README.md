@@ -10,7 +10,7 @@ R Scripts used to obtain Antarctic fur seal abundant estimates, trends, and popu
 ## Description
 Analysis functions in R and BUGS code:
 
-1. R script $\texttt{SSBFemale_IPM_2001-2025.R}$ fits an IPM (Integrated Population Model) to FEMALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 2000/2001
+1. R script **SSBFemale_IPM_2001-2025.R** fits an IPM (Integrated Population Model) to FEMALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 2000/2001
 to 2024/2025. Generates data outputs: **AFSFemaleSimulations200125.csv**, **AFSFemaleSimulations200125.Rds**, and **SSBFemaleIPM200125.RData**
 
 2. R script $\texttt{SSBMale_IPM_1995-2025.R}$ fits an IPM (Integrated Population Model) to MALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 1994/1995
