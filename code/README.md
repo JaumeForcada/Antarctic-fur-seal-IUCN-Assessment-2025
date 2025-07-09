@@ -13,15 +13,15 @@ Analysis functions in R and BUGS code:
 1. R script **SSBFemale_IPM_2001-2025.R** fits an IPM (Integrated Population Model) to FEMALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 2000/2001
 to 2024/2025. Generates data outputs: **AFSFemaleSimulations200125.csv**, **AFSFemaleSimulations200125.Rds**, and **SSBFemaleIPM200125.RData**
 
-2. R script $\texttt{SSBMale_IPM_1995-2025.R}$ fits an IPM (Integrated Population Model) to MALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 1994/1995
+2. R script **SSBMale_IPM_1995-2025.R** fits an IPM (Integrated Population Model) to MALE count, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 1994/1995
 to 2024/2025. Generates data outputs: **SSBMaleIPM19942025.RData**, **AFSMaleSimulations19952025.csv**, and **AFSMaleSimulations19952025.Rds**.
 
-3. R script $\texttt{SSBMatureFemale_IPM_1984-2025.R}$ fits an IPM (Integrated Population Model) to MATURE FEMALE counts, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 1978/1979
+3. R script **SSBMatureFemale_IPM_1984-2025.R** fits an IPM (Integrated Population Model) to MATURE FEMALE counts, demographic, and mark-recapture data collected at the Special Syudy Beach (SSB) of Bird Island from 1978/1979
 to 2024/2025. Generates following data outputs: **AFSFemaleSimulations19842025.Rds**, **AFSFemaleSimulations19842025.csv**, and **SSBFemaleIPM19842025.RData**
 
-4. R script $\texttt{AFSFemale_vital_rates.R}$ to derive estimates of vital rates (survival, recruitment, fecundity, immigration), life tables, and generation time (length) for Antarctic fur seal females
+4. R script **AFSFemale_vital_rates.R** to derive estimates of vital rates (survival, recruitment, fecundity, immigration), life tables, and generation time (length) for Antarctic fur seal females
 
-5. R script $\texttt{AFSMale_vital_rates.R}$ to derive estimates of vital rates (survival, recruitment (becoming territorial), immigration), life tables, and generation time (length) for Antarctic fur seal males
+5. R script **AFSMale_vital_rates.R** to derive estimates of vital rates (survival, recruitment (becoming territorial), immigration), life tables, and generation time (length) for Antarctic fur seal males
 
 6. R script $\texttt{SSBFemalePMCountsForTrendAnalysis.R}$ fits Bayesian GAMMs to SSB female daily counts for prediction of SSB count value on the day a survey count is obtained. 
 
