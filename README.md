@@ -7,7 +7,7 @@ the Antarctic fur seal IUCN Red List Assessment for 2025.
 
 Go to:
 
-Antarctic-fur-seal-IUCN-Assessment-2025/documentation/AFSIUCN2025Assessment.docx 
+Antarctic-fur-seal-IUCN-Assessment-2025/documentation/AFSIUCN2025Assessment.docx
 
 (or via browser: https://github.com/JaumeForcada/Antarctic-fur-seal-IUCN-Assessment-2025/blob/main/documentation/AFSIUCN2025Assessment.docx)
 
