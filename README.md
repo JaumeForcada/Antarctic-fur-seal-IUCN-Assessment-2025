@@ -11,6 +11,8 @@ Antarctic-fur-seal-IUCN-Assessment-2025/documentation/AFSIUCN2025Assessment.docx
 
 (or via browser: https://github.com/JaumeForcada/Antarctic-fur-seal-IUCN-Assessment-2025/blob/main/documentation/AFSIUCN2025Assessment.docx)
 
+This is a large document, and in both cases the best is to download it (e.g., by selecting the "Raw File" link or other download options).
+
 This is a hybrid manuscript, which contains a data analysis in support and justification of the Red List assessment, and 
 the quantitative population assessment of the species that assigns Red List Categories to species and subpopulations,
 and the justification for these.
